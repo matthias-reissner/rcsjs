@@ -1,5 +1,5 @@
 {
-  "name": "rcsjs",
+  "name": "@matthias-reissner/rcsjs",
   "version": "0.1.0",
   "description": "A JavaScript library for reading and writing RCS archives",
   "license": "Apache-2.0",

@@ -19,7 +19,7 @@ import {
   createArchive,
   parseArchive,
   serializeArchive,
-} from "rcsjs";
+} from "@matthias-reissner/rcsjs";
 
 let archive = createArchive({ description: "Example file" });
 archive = checkin(archive, "hello\n", {
@@ -52,7 +52,7 @@ Run the test suite with `npm test`.
 Install the published package with:
 
 ```sh
-npm install rcsjs
+npm install @matthias-reissner/rcsjs
 ```
 
 For Node.js file access, import the optional adapter. It can read/write archive
@@ -64,7 +64,7 @@ import {
   checkoutFile,
   readArchiveFile,
   writeArchiveFile,
-} from "rcsjs/node";
+} from "@matthias-reissner/rcsjs/node";
 
 await checkinFile("RCS/example.txt,v", "example.txt", {
   author: "alice",
