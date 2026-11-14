@@ -3,6 +3,9 @@
 A dependency-free JavaScript library for reading and writing text-based RCS
 archives. It works in Node.js and modern browsers.
 
+Try the [interactive browser demo](https://matthias-reissner.github.io/rcsjs/).
+It runs entirely in your browser and includes the RCS archive it creates.
+
 ## Current scope
 
 The library supports parsing and serializing standard RCS archive files,
@@ -136,5 +139,12 @@ The platform-neutral API supports the same mode with
 `createArchive({ binary: true })`; `checkin` accepts a `Uint8Array`,
 `checkout` and `serializeArchive` return `Uint8Array`, and `parseArchive`
 detects the archive's `expand @b@;` mode.
+
+## GitHub Pages demo
+
+The browser demo is deployed from the `main` branch by the GitHub Actions
+workflow. In the repository settings, set **Pages → Build and deployment →
+Source** to **GitHub Actions**. The workflow publishes only the demo and the
+browser-compatible core modules.
 
 This package is distributed under the Apache-2.0 license; see [LICENSE](./LICENSE).

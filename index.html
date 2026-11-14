@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="rcsjs ausprobieren: RCS-Revisionen direkt im Browser erstellen, vergleichen und exportieren."
+    >
+    <meta name="theme-color" content="#101817">
+    <title>rcsjs — RCS im Browser</title>
+    <link rel="stylesheet" href="./demo/styles.css">
+    <script type="module" src="./demo/app.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="rcsjs Startseite">
+        <span class="brand-mark" aria-hidden="true">r.</span>
+        <span>rcsjs</span>
+      </a>
+      <nav aria-label="Externe Links">
+        <a href="https://www.npmjs.com/package/@matthias-reissner/rcsjs">npm</a>
+        <a href="https://github.com/matthias-reissner/rcsjs">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow"><span class="status-dot"></span> RCSJS · LIVE-DEMO</p>
+        <h1 id="page-title">Versionsgeschichte.<br><span>Zum Anfassen.</span></h1>
+        <p class="intro-copy">
+          Erstelle Revisionen, springe durch die Historie und sieh dir das
+          resultierende RCS-Archiv an — direkt in deinem Browser.
+        </p>
+        <p class="local-note">
+          <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M10 2.5 4 5v4.3c0 3.8 2.5 6.8 6 8.2 3.5-1.4 6-4.4 6-8.2V5l-6-2.5Zm0 2.2 3.8 1.6v3c0 2.8-1.7 5.1-3.8 6.3-2.1-1.2-3.8-3.5-3.8-6.3v-3L10 4.7Z"/></svg>
+          Läuft lokal — deine Eingaben verlassen den Browser nicht.
+        </p>
+      </section>
+
+      <section class="playground" aria-label="RCS-Archiv-Demo">
+        <div class="workspace">
+          <section class="panel editor-panel" aria-labelledby="editor-heading">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-kicker">ARBEITSKOPIE</p>
+                <h2 id="editor-heading">README.txt</h2>
+              </div>
+              <span class="file-type">TEXT</span>
+            </div>
+
+            <label class="sr-only" for="working-copy">Inhalt der Arbeitskopie</label>
+            <textarea id="working-copy" spellcheck="false" aria-describedby="editor-hint"></textarea>
+            <p class="field-hint" id="editor-hint">Ändere den Text und checke ihn als neue Revision ein.</p>
+
+            <form id="checkin-form" class="checkin-form">
+              <div class="form-row">
+                <label class="field">
+                  <span>Autor</span>
+                  <input id="author" name="author" value="alice" required maxlength="64">
+                </label>
+                <label class="field">
+                  <span>Änderungsnotiz</span>
+                  <input id="log-message" name="log" value="Text aktualisiert" maxlength="160">
+                </label>
+              </div>
+              <button class="button button-primary" type="submit">
+                <span aria-hidden="true">＋</span> Revision einchecken
+              </button>
+            </form>
+          </section>
+
+          <aside class="panel history-panel" aria-labelledby="history-heading">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-kicker">RCS-HISTORIE</p>
+                <h2 id="history-heading">Revisionen <span class="count-badge" id="revision-count">0</span></h2>
+              </div>
+              <span class="branch-label"><span aria-hidden="true">⑂</span> trunk</span>
+            </div>
+
+            <ol class="revision-list" id="revision-list" aria-label="Revisionen"></ol>
+            <div class="revision-detail" id="revision-detail" aria-live="polite"></div>
+            <div class="history-actions">
+              <button class="button button-secondary" id="reset-demo" type="button">Demo zurücksetzen</button>
+              <label class="button button-secondary file-button" for="archive-file">Archiv öffnen</label>
+              <input class="sr-only" id="archive-file" type="file" accept=".v,.txt,text/plain">
+            </div>
+          </aside>
+        </div>
+
+        <section class="panel diff-panel" aria-labelledby="diff-heading">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">ÄNDERUNGEN</p>
+              <h2 id="diff-heading">Revision im Vergleich</h2>
+            </div>
+            <span class="diff-legend"><span class="added-key">+</span> hinzugefügt <span class="removed-key">−</span> entfernt</span>
+          </div>
+          <pre class="diff-output" id="diff-output" aria-live="polite"></pre>
+        </section>
+
+        <details class="panel archive-panel" open>
+          <summary>
+            <span>
+              <span class="panel-kicker">ARCHIV-DATEI</span>
+              <strong>So sieht RCS aus</strong>
+            </span>
+            <span class="archive-summary-actions">
+              <span class="archive-size" id="archive-size"></span>
+              <span class="disclosure" aria-hidden="true">⌄</span>
+            </span>
+          </summary>
+          <div class="archive-actions">
+            <button class="button button-secondary button-small" id="download-archive" type="button">.txt,v herunterladen</button>
+          </div>
+          <pre class="archive-output" id="archive-output"></pre>
+        </details>
+
+        <p class="notice" id="notice" role="status" aria-live="polite"></p>
+      </section>
+
+      <footer class="page-footer">
+        <span>rcsjs — RCS-Archive lesen und schreiben mit JavaScript</span>
+        <span>Apache-2.0 · <a href="https://github.com/matthias-reissner/rcsjs">Quellcode ansehen</a></span>
+      </footer>
+    </main>
+  </body>
+</html>
