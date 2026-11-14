@@ -1,0 +1,75 @@
+head	1.2;
+access;
+symbols
+	feature:1.1.0.2;
+locks;
+comment	@# @;
+
+
+1.2
+date	2026.11.14.07.03.31;	author fixture;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2026.11.14.07.03.30;	author fixture;	state Exp;
+branches
+	1.1.2.1;
+next	;
+
+1.1.2.1
+date	2026.11.14.07.03.32;	author fixture;	state Exp;
+branches;
+next	1.1.2.2;
+
+1.1.2.2
+date	2026.11.14.07.03.34;	author fixture;	state Exp;
+branches;
+next	;
+
+
+desc
+@native-branch
+@
+
+
+1.2
+log
+@trunk
+@
+text
+@trunk
+@
+
+
+1.1
+log
+@initial
+@
+text
+@d1 1
+a1 1
+base
+@
+
+
+1.1.2.1
+log
+@branch-one
+@
+text
+@d1 1
+a1 1
+branch one
+@
+
+
+1.1.2.2
+log
+@branch-two
+@
+text
+@d1 1
+a1 1
+branch two
+@

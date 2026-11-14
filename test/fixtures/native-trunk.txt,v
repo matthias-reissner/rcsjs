@@ -1,0 +1,41 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2026.11.14.07.01.20;	author fixture;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2026.11.14.07.01.19;	author fixture;	state Exp;
+branches;
+next	;
+
+
+desc
+@native-fixture
+@
+
+
+1.2
+log
+@update
+@
+text
+@alpha
+changed
+beta
+@
+
+
+1.1
+log
+@initial
+@
+text
+@d2 1
+@

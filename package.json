@@ -1,0 +1,43 @@
+{
+  "name": "rcsjs",
+  "version": "0.1.0",
+  "description": "A JavaScript library for reading and writing RCS archives",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./src/index.js",
+  "files": [
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthias-reissner/rcsjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/matthias-reissner/rcsjs/issues"
+  },
+  "homepage": "https://github.com/matthias-reissner/rcsjs#readme",
+  "keywords": [
+    "rcs",
+    "revision-control",
+    "version-control",
+    "source-control",
+    "javascript"
+  ],
+  "exports": {
+    ".": "./src/index.js",
+    "./node": "./src/node.js",
+    "./diff": "./src/diff.js"
+  },
+  "bin": {
+    "rcsjs": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "prepublishOnly": "npm test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
